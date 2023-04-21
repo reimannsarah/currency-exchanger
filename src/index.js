@@ -24,29 +24,32 @@ function exchangeCurrency(currency) {
 
 function handleFormSubmission(e) {
   e.preventDefault();
-  let amount = document.getElementById("usd").value;
-  let currency = document.getElementById("newCurrency").value;
+  let amount = document.getElementById("amount").value;
+  let currency1 = document.getElementById("currency1").value;
+  let currency2 = document.getElementById("currency2").value;
   let div = document.getElementById("output");
-  if (currency === "placeholder" && amount === "") {
+  if (currency1 === "placeholder" && currency2 === "placeholder" && amount === "") {
     div.innerText = "Please input and amount and select a currency";
   } else if (amount === "") {
     div.innerText - "Please enter an amount";
-  } else if (currency === "placeholder") {
+  } else if (currency1 === "placeholder" || currency2 === "placeholder") {
     div.innerText = "Please select a currency";
   } else {
-    exchangeCurrency(currency);
+    exchangeCurrency(currency1);
   }
 }
 
 function printExchangeData(exchange) {
   let div = document.getElementById("output");
-  let currency = document.getElementById("newCurrency").value;
-  let usd = document.getElementById("usd").value;
+  let currency1 = document.getElementById("currency1").value;
+  let currency2 = document.getElementById("currency2").value;
+  let amount = document.getElementById("amount").value;
   let rateP = document.createElement("p");
   let exchangeP = document.createElement("p");
-  let exchangeRate = exchange.conversion_rates.USD;
-  rateP.innerText = `The exchange rate is: ${1 / exchangeRate}${currency} to 1USD`;
-  exchangeP.innerText = `${usd}USD = ${usd / exchangeRate}${currency}`;
+  let exchangeRate = exchange.conversion_rates[currency2];
+  console.log(exchangeRate);
+  rateP.innerText = `The exchange rate is: 1${currency1} to ${exchangeRate}${currency2}`;
+  exchangeP.innerText = `${amount}${currency1} = ${amount / exchangeRate}${currency2}`;
   div.append(rateP, exchangeP);
 }
 
