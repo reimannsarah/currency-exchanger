@@ -29,7 +29,7 @@ function handleFormSubmission(e) {
   let currency2 = document.getElementById("currency2").value;
   let div = document.getElementById("output");
   if (currency1 === "placeholder" && currency2 === "placeholder" && amount === "") {
-    div.innerText = "Please input and amount and select a currency";
+    div.innerText = "Please input and amount and select currencies you'd like to convert";
   } else if (amount === "") {
     div.innerText - "Please enter an amount";
   } else if (currency1 === "placeholder" || currency2 === "placeholder") {
