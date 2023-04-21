@@ -11,7 +11,7 @@ function exchangeCurrency(currency) {
         ${response.message}`;
         throw new Error(errorMessage);
       }
-      printExchangeRate(response);
+      printExchangeData(response);
     })
     .catch(error => {
       console.log(error);
@@ -28,8 +28,17 @@ function handleFormSubmission(e) {
   exchangeCurrency(currency);
 }
 
-function printExchangeRate(exchange) {
-  document.getElementById("output").innerText = `The exchange rate is: ${exchange.conversion_rates.USD}`;
+function printExchangeData(exchange) {
+  let currency = document.getElementById("newCurrency").value;
+  let usd = document.getElementById("usd").value;
+  let div = document.getElementById("output");
+  let rateP = document.createElement("p");
+  let exchangeP = document.createElement("p");
+  let exchangeRate = exchange.conversion_rates.USD;
+  rateP.innerText = `The exchange rate is: ${1 / exchangeRate}${currency} to 1USD`;
+  exchangeP.innerText = `${usd}USD = ${usd / exchangeRate}${currency}`;
+  div.append(rateP, exchangeP);
+  
 }
 
 document.querySelector("form").addEventListener("submit", handleFormSubmission);
