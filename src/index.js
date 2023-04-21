@@ -24,13 +24,22 @@ function exchangeCurrency(currency) {
 
 function handleFormSubmission(e) {
   e.preventDefault();
+  let amount = document.getElementById("usd").value;
   let currency = document.getElementById("newCurrency").value;
-  exchangeCurrency(currency);
+  let div = document.getElementById("output");
+  if (currency === "placeholder" && amount === "") {
+    div.innerText = "Please input and amount and select a currency";
+  } else if (amount === "") {
+    div.innerText - "Please enter an amount";
+  } else if (currency === "placeholder") {
+    div.innerText = "Please select a currency";
+  } else {
+    exchangeCurrency(currency);
+  }
 }
 
 function printExchangeData(exchange) {
   let div = document.getElementById("output");
-  div.innerHTML = null;
   let currency = document.getElementById("newCurrency").value;
   let usd = document.getElementById("usd").value;
   let rateP = document.createElement("p");
@@ -38,7 +47,7 @@ function printExchangeData(exchange) {
   let exchangeRate = exchange.conversion_rates.USD;
   rateP.innerText = `The exchange rate is: ${1 / exchangeRate}${currency} to 1USD`;
   exchangeP.innerText = `${usd}USD = ${usd / exchangeRate}${currency}`;
-  div.append(rateP, exchangeP);  
+  div.append(rateP, exchangeP);
 }
 
 function printError(error) {
