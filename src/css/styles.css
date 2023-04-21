@@ -1,6 +1,54 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;1,200&family=Sofia+Sans+Condensed:wght@200&display=swap');
+
+:root {
+  --charcoal: #2e5266;
+  --slate: #6e8898;
+  --cadet: #9fb1bc;
+  --jasper: #d5573b;
+  --sandy: #f09d51;
+}
+
 body {
-  background-color: lightblue;
+  background-color: var(--cadet);
+  font-family: Barlow Condensed, sans-serif ;
 } 
+
+h1 {
+
+}
+
+input {
+  border: none;
+  border-radius: 5px;
+  margin: 4px;
+  width: 50px;
+  padding: 5px;
+}
+
+select {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 4px;
+}
+
+button {
+  border: 2px solid var(--slate);
+  border-radius: 5px;
+  margin: 4px;
+  padding: 5px;
+  background-color: var(--slate);
+  color: white;
+}
+
+button:hover {
+  background-color: var(--cadet);
+  border: 2px solid var(--slate);
+  color: var(--slate);
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
 
 #won {
   color: red;
