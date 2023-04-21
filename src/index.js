@@ -11,9 +11,21 @@ function exchangeCurrency(currency) {
         ${response.message}`;
         throw new Error(errorMessage);
       }
-      printExchangedCurrency();
+      console.log(response);
     })
     .catch(error => {
-      printError(error);
+      console.log(error);
     });
-};
+}
+
+// function printExchangedCurrency() {
+
+// }
+
+function handleFormSubmission(e) {
+  e.preventDefault();
+  let currency = document.getElementById("newCurrency").value;
+  console.log(exchangeCurrency(currency));
+}
+
+document.querySelector("form").addEventListener("submit", handleFormSubmission);
