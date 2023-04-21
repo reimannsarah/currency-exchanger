@@ -28,6 +28,7 @@ function handleFormSubmission(e) {
   let currency1 = document.getElementById("currency1").value;
   let currency2 = document.getElementById("currency2").value;
   let div = document.getElementById("output");
+  div.innerHTML = null;
   if (currency1 === "placeholder" && currency2 === "placeholder" && amount === "") {
     div.innerText = "Please input and amount and select currencies you'd like to convert";
   } else if (amount === "") {
@@ -47,8 +48,8 @@ function printExchangeData(exchange) {
   let rateP = document.createElement("p");
   let exchangeP = document.createElement("p");
   let exchangeRate = exchange.conversion_rates[currency2];
-  rateP.innerText = `The exchange rate is: 1${currency1} to ${exchangeRate}${currency2}`;
-  exchangeP.innerText = `${amount}${currency1} = ${amount / exchangeRate}${currency2}`;
+  rateP.innerText = `The exchange rate is: 1 ${currency1} to ${exchangeRate} ${currency2}`;
+  exchangeP.innerText = `${amount} ${currency1} = ${parseFloat(amount / exchangeRate).toFixed(2)} ${currency2}`;
   div.append(rateP, exchangeP);
 }
 
