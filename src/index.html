@@ -9,9 +9,9 @@
 <body>
   <form>
     <label for="usd">Please enter a dollar amount you'd like to exchange:</label>
-    <input id="usd" type="text">
+    <input id="usd" type="text" onfocus="this.value=''">
     <label for="newCurrency">Please choose a currency</label>
-    <select name="" id="newCurrency">
+    <select id="newCurrency">
       <option disabled="disabled" selected="selected" value="placeholder">Select a currency</option>
       <option value="AED">UAE Dirham</option>
       <option value="AFN">Afghan Afghani</option>
