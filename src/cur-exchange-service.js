@@ -11,5 +11,5 @@ export default class Exchange {
       .catch(error => {
         return error;
       });
-  };
-};
+  }
+}
