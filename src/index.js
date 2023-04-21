@@ -1,5 +1,5 @@
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import Exchange from './cur-exchange-service';
 
@@ -47,7 +47,6 @@ function printExchangeData(exchange) {
   let rateP = document.createElement("p");
   let exchangeP = document.createElement("p");
   let exchangeRate = exchange.conversion_rates[currency2];
-  console.log(exchangeRate);
   rateP.innerText = `The exchange rate is: 1${currency1} to ${exchangeRate}${currency2}`;
   exchangeP.innerText = `${amount}${currency1} = ${amount / exchangeRate}${currency2}`;
   div.append(rateP, exchangeP);
